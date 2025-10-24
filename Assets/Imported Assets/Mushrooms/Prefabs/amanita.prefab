@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7315374307964657943}
   - component: {fileID: 2336363886679141906}
   - component: {fileID: 890038003630387668}
-  - component: {fileID: -4399647710273149231}
   m_Layer: 0
   m_Name: amanita
   m_TagString: Untagged
@@ -288,19 +287,3 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &-4399647710273149231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7483101222483807998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e564a2e6213e964db4847f18aa9f98c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftHandModel: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b,
-    type: 3}
-  rightHandModel: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
-    type: 3}
