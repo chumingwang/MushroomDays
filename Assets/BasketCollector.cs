@@ -58,7 +58,7 @@ public class BasketCollector : MonoBehaviour
         var mush = other.GetComponentInParent<MushroomCollectible>();
         if (mush == null) return;
 
-        // Don't “steal” if user is still holding it
+        // Don't “steal?if user is still holding it
         if (mush.grab && mush.grab.isSelected) return;
 
         // Already collected?
