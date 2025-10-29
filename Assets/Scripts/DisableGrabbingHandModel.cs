@@ -15,6 +15,13 @@ public class DisableGrabbingHandModel : MonoBehaviour
         XRGrabInteractable grabInteractable = GetComponent<XRGrabInteractable>();
         grabInteractable.selectEntered.AddListener(HideGrabbingHand);
         grabInteractable.selectExited.AddListener(ShowGrabbingHand);
+
+        if (leftHandModel == null)
+            leftHandModel = GameObject.Find("Left Hand Model");
+
+        if (rightHandModel == null)
+            rightHandModel = GameObject.Find("Right Hand Model");
+
     }
 
     public void HideGrabbingHand(SelectEnterEventArgs args)
