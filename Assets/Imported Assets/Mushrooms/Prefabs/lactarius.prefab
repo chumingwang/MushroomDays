@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -2596155716596184809}
   - component: {fileID: -2920441754223818372}
   - component: {fileID: 2594248720428980342}
+  - component: {fileID: -8532539292699802047}
   m_Layer: 0
   m_Name: lactarius
   m_TagString: Untagged
@@ -240,7 +241,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -302,3 +303,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHandModel: {fileID: 0}
   rightHandModel: {fileID: 0}
+--- !u!114 &-8532539292699802047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254985467246714617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baabca32d94dcd04dbb18ef52f1154c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RootOffset: 0.035
