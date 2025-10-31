@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5259901452633057763}
   m_Layer: 0
   m_Name: morel
-  m_TagString: Untagged
+  m_TagString: Mushroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -315,4 +315,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baabca32d94dcd04dbb18ef52f1154c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RootOffset: 0
+  RootOffset: 0.055

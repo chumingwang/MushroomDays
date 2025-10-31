@@ -501,11 +501,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &5894252941806614551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -676,6 +676,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2894e514beefc540bf792540e5cc546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contentAnchor: {fileID: 0}
+  basketTrigger: {fileID: 0}
+  countLabel: {fileID: 0}
+  capacity: 30
+  radius: 0.15
+  itemHeight: 0.035
 --- !u!1001 &7986912294304018530
 PrefabInstance:
   m_ObjectHideFlags: 0
