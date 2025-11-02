@@ -20,14 +20,14 @@ public class BasketSettings : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (rb.velocity.magnitude > 5f)
-            rb.velocity = rb.velocity.normalized * 5f;
+        if (rb.velocity.magnitude > 6f)
+            rb.velocity = rb.velocity.normalized * 6f;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Mushroom"))
-            other.GetComponent<Rigidbody>().drag = 5f;
+            other.GetComponent<Rigidbody>().drag = 10f;
     }
 
     void OnTriggerExit(Collider other)
