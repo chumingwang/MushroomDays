@@ -122,6 +122,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &188649591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188649592}
+  m_Layer: 0
+  m_Name: UIRainOverlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &188649592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188649591}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &479468707
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +246,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1775581022}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &479468710
 MonoBehaviour:
@@ -377,6 +408,8 @@ GameObject:
   - component: {fileID: 1002047771}
   - component: {fileID: 1002047770}
   - component: {fileID: 1002047773}
+  - component: {fileID: 1002047774}
+  - component: {fileID: 1002047775}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -452,7 +485,7 @@ Transform:
   m_GameObject: {fileID: 1002047769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.17, y: 1, z: -15.08}
+  m_LocalPosition: {x: 95.03, y: 11.4, z: 19.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -502,6 +535,38 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1002047774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002047769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569e41dd18895ce4d982bb1e5b290500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiDoc: {fileID: 0}
+  rainTexture: {fileID: 2800000, guid: e2924a23deab8db4996b4d44edd04469, type: 3}
+  scrollSpeed: {x: 0, y: -0.25}
+  intensity: 1
+--- !u!114 &1002047775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002047769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: dd92b9b18bed20447bc18b1f2b023670, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 0}
+  m_SortingOrder: 0
 --- !u!1 &1024873314
 GameObject:
   m_ObjectHideFlags: 0
@@ -5457,7 +5522,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 479468709}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2115298756
@@ -5506,7 +5572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sun: {fileID: 479468708}
   time01: 0
-  dayLengthMinutes: 5
+  dayLengthMinutes: 3
   runClock: 1
   sunIntensityCurve:
     serializedVersion: 2
@@ -5591,21 +5657,25 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   sunElevation: 45
   azimuthOffsetDeg: 0
-  rainParticles: {fileID: 1024873317}
+  rainOverlay: {fileID: 1002047774}
   rainLoop: {fileID: 1775581021}
   rainVolume: 0.8
-  rainRateMax: 1500
-  dryDurationRange: {x: 30, y: 90}
+  dryDurationRange: {x: 5, y: 10}
   rainDurationRange: {x: 20, y: 60}
   rainBlendSeconds: 1.5
+  daySkybox: {fileID: 0}
+  nightSkybox: {fileID: 2100000, guid: 8975a4a9690d1ee489dc2d9a33391e92, type: 2}
+  stars: {fileID: 0}
+  nightStart: 0.95
+  nightEnd: 0.1
   current: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1002047772}
-  - {fileID: 479468709}
   - {fileID: 597611251}
   - {fileID: 2115298758}
   - {fileID: 1775581022}
   - {fileID: 542161059}
+  - {fileID: 188649592}

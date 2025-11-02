@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="rain-overlay" class="RainOverlay" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/Rain.png?fileID=2800000&amp;guid=e2924a23deab8db4996b4d44edd04469&amp;type=3#Rain&quot;);" />
+</ui:UXML>
