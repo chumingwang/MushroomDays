@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7500045713857961314}
   - component: {fileID: -6932182303939313531}
   - component: {fileID: 6945153562644828148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: puffball
   m_TagString: Mushroom
   m_Icon: {fileID: 0}

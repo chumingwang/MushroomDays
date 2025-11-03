@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4831869383390554533}
   - component: {fileID: -3359432226883074869}
   - component: {fileID: 5259901452633057763}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: morel
   m_TagString: Mushroom
   m_Icon: {fileID: 0}

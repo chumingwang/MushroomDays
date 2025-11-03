@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3255428117782351849}
   - component: {fileID: -6516252582703183883}
   - component: {fileID: -4103470102979956168}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chanterelle
   m_TagString: Mushroom
   m_Icon: {fileID: 0}

@@ -28,6 +28,7 @@ public class MushroomPhysics : MonoBehaviour
     {
         // When player releases, enable gravity again
         rb.useGravity = true;
+        rb.drag = 0.1f;
         //grabInteractable.selectEntered.RemoveListener(OnGrab);
         //grabInteractable.selectExited.RemoveListener(OnRelease);
     }
