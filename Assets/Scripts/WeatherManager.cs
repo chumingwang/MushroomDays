@@ -31,6 +31,9 @@ public class WeatherManager : MonoBehaviour
     public Material nightSkybox;
     public ParticleSystem stars;
 
+    [Header("Rain Sky")]
+    public Material rainSkybox;
+
     [Header("Debug")]
     public Weather current = Weather.Dry;
 
@@ -40,6 +43,13 @@ public class WeatherManager : MonoBehaviour
     float _baseSunIntensity;
     Material _daySkybox;
 
+    [Header("Rain Particles")]
+    public ParticleSystem rainParticles;
+    public float rainRateMax = 1500f;
+
+    ParticleSystem.EmissionModule _rainEm;
+
+
     void Awake()
     {
         _secondsPerDay = Mathf.Max(1f, dayLengthMinutes * 60f);
@@ -47,6 +57,11 @@ public class WeatherManager : MonoBehaviour
         if (rainLoop != null) rainLoop.volume = 0f;
         if (rainOverlay != null) rainOverlay.SetIntensity(0f);
         _daySkybox = RenderSettings.skybox;
+        if (rainParticles){
+            _rainEm = rainParticles.emission;
+            _rainEm.enabled = false;
+        }
+
     }
 
     void OnEnable()
@@ -84,15 +99,18 @@ public class WeatherManager : MonoBehaviour
         Vector3 sunDir = -sun.transform.forward;
         bool isNight = sunDir.y <= 0f;
 
-        if (nightSkybox)
-            RenderSettings.skybox = isNight ? nightSkybox : _daySkybox;
+        Material baseSky = isNight && nightSkybox ? nightSkybox : _daySkybox;
+        if (rainSkybox && _rainBlendT > 0.001f)
+            RenderSettings.skybox = rainSkybox;
+        else
+            RenderSettings.skybox = baseSky;
 
         if (stars)
         {
             var em = stars.emission;
-            em.enabled = isNight;
-            if (isNight && !stars.isPlaying) stars.Play();
-            if (!isNight && stars.isPlaying) stars.Stop();
+            em.enabled = isNight && (_rainBlendT <= 0.001f);
+            if (em.enabled && !stars.isPlaying) stars.Play();
+            if (!em.enabled && stars.isPlaying) stars.Stop();
         }
     }
 
@@ -116,6 +134,23 @@ public class WeatherManager : MonoBehaviour
             if (_rainingTarget && !rainLoop.isPlaying) rainLoop.Play();
             if (!_rainingTarget && rainLoop.isPlaying && _rainBlendT <= 0f) rainLoop.Stop();
         }
+
+        if (rainOverlay != null)
+            rainOverlay.SetIntensity(_rainBlendT);
+
+        if (rainParticles)
+        {
+            bool any = _rainBlendT > 0.001f;
+            _rainEm.enabled = any;
+
+            var rate = _rainEm.rateOverTime;
+            rate.constant = Mathf.Lerp(0f, rainRateMax, _rainBlendT);
+            _rainEm.rateOverTime = rate;
+
+            if (any && !rainParticles.isPlaying) rainParticles.Play();
+            if (!any && rainParticles.isPlaying) rainParticles.Stop();
+        }
+
     }
 
     IEnumerator RainDirector()
