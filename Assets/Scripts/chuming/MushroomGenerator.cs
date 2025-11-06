@@ -75,6 +75,9 @@ public class MushroomGenerator : MonoBehaviour
                 rb.useGravity = false;
             }
 
+            MeshCollider collider = mushroom.GetComponent<MeshCollider>();
+            collider.isTrigger = true;
+
         }
     }
 

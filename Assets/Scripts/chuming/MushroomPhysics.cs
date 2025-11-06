@@ -7,11 +7,13 @@ public class MushroomPhysics : MonoBehaviour
 {
     private Rigidbody rb;
     private XRGrabInteractable grabInteractable;
+    private MeshCollider Mcollider;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         grabInteractable = GetComponent<XRGrabInteractable>();
+        Mcollider = GetComponent<MeshCollider>();
 
         // Subscribe to grab and release events
         grabInteractable.selectEntered.AddListener(OnGrab);
@@ -31,5 +33,13 @@ public class MushroomPhysics : MonoBehaviour
         rb.drag = 0.1f;
         //grabInteractable.selectEntered.RemoveListener(OnGrab);
         //grabInteractable.selectExited.RemoveListener(OnRelease);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Left Hand" || other.tag == "Right Hand") 
+        {
+            Mcollider.isTrigger = false;
+        }
     }
 }
