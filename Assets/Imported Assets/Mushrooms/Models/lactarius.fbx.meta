@@ -3,7 +3,12 @@ guid: 1c6796e733fb63a459275b3fa6f76877
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lactarius_material
+    second: {fileID: 2100000, guid: fdbd8f897d88e5e4f8c42fd7d9011184, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

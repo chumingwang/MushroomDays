@@ -3,7 +3,12 @@ guid: baf88609c0c515c4283085cd4c7b477e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chanterelle
+    second: {fileID: 2100000, guid: bc8300d792df86446ab921480b45bde8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

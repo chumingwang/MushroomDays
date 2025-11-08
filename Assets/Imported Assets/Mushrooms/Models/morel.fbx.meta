@@ -3,7 +3,12 @@ guid: f2ecf634d69fcb44c82e029f3a875285
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Morel
+    second: {fileID: 2100000, guid: 82c7a3f4cd9c12647ac0a19681ce51f5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,7 +3,12 @@ guid: f0e73330afa7ffb4290771e516749b95
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: boletus_material
+    second: {fileID: 2100000, guid: 395aefde61b781145a28e36d5f7b3b4c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

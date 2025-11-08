@@ -68,6 +68,7 @@ public class sliceObject : MonoBehaviour
         MeshCollider collider = sliceObject.AddComponent<MeshCollider>();
         XRGrabInteractable grab = sliceObject.AddComponent<XRGrabInteractable>();
         sliceObject.AddComponent<DisableGrabbingHandModel>();
+        sliceObject.AddComponent<CookableItem>();
         collider.convex = true;
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
         rb.AddExplosionForce(cutForce, sliceObject.transform.position, 1);
