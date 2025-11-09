@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -4128048810055293882}
   - component: {fileID: -2702647726522431834}
   - component: {fileID: 3287140296948236937}
+  - component: {fileID: -6840443069570572718}
   m_Layer: 6
   m_Name: boletus
   m_TagString: Mushroom
@@ -316,3 +317,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RootOffset: 0.025
+--- !u!114 &-6840443069570572718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496843399674035014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58d45eb17c3171140b45bf4c51a9daa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cookTime: 5

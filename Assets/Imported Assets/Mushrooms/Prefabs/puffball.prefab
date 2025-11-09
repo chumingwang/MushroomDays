@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7500045713857961314}
   - component: {fileID: -6932182303939313531}
   - component: {fileID: 6945153562644828148}
+  - component: {fileID: 3077194436014007137}
   m_Layer: 6
   m_Name: puffball
   m_TagString: Mushroom
@@ -316,3 +317,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RootOffset: 0.01
+--- !u!114 &3077194436014007137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957643304159223314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58d45eb17c3171140b45bf4c51a9daa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cookTime: 5
