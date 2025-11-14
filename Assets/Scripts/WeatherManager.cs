@@ -34,6 +34,26 @@ public class WeatherManager : MonoBehaviour
     [Header("Rain Sky")]
     public Material rainSkybox;
 
+    [Header("Skybox Blending")]
+    [Tooltip("Seconds to blend between day and night sky appearance.")]
+    public float skyboxBlendDuration = 30f;
+    [Tooltip("Day sky tint for blending (requires skybox shader with _Tint).")]
+    public Color daySkyTint = Color.white;
+    [Tooltip("Night sky tint for blending (slightly bluish/grey usually).")]
+    public Color nightSkyTint = new Color(0.4f, 0.45f, 0.6f, 1f);
+    [Tooltip("Skybox exposure during full day (requires _Exposure property).")]
+    public float daySkyExposure = 1.0f;
+    [Tooltip("Skybox exposure when fully night (darker).")]
+    public float nightSkyExposure = 0.3f;
+
+    [Header("Night Darkness")]
+    [Tooltip("Additional multiplier for how dark it gets at night.")]
+    [Range(0f, 1f)] public float nightDarknessMultiplier = 0.25f;
+    [Tooltip("Ambient intensity during full day.")]
+    public float dayAmbientIntensity = 1.0f;
+    [Tooltip("Ambient intensity during night.")]
+    public float nightAmbientIntensity = 0.1f;
+
     [Header("Debug")]
     public Weather current = Weather.Dry;
 
@@ -42,13 +62,15 @@ public class WeatherManager : MonoBehaviour
     bool _rainingTarget;
     float _baseSunIntensity;
     Material _daySkybox;
+    float _skyboxBlendT;
+    int _skyboxTintId;
+    int _skyboxExposureId;
 
     [Header("Rain Particles")]
     public ParticleSystem rainParticles;
     public float rainRateMax = 1500f;
 
     ParticleSystem.EmissionModule _rainEm;
-
 
     void Awake()
     {
@@ -57,11 +79,23 @@ public class WeatherManager : MonoBehaviour
         if (rainLoop != null) rainLoop.volume = 0f;
         if (rainOverlay != null) rainOverlay.SetIntensity(0f);
         _daySkybox = RenderSettings.skybox;
-        if (rainParticles){
+        if (rainParticles)
+        {
             _rainEm = rainParticles.emission;
             _rainEm.enabled = false;
         }
 
+        _skyboxTintId = Shader.PropertyToID("_Tint");
+        _skyboxExposureId = Shader.PropertyToID("_Exposure");
+
+        bool startIsNight = false;
+        if (sun)
+        {
+            Vector3 sunDir = -sun.transform.forward;
+            startIsNight = sunDir.y <= 0f;
+        }
+        _skyboxBlendT = startIsNight ? 1f : 0f;
+        RenderSettings.ambientIntensity = Mathf.Lerp(dayAmbientIntensity, nightAmbientIntensity, _skyboxBlendT);
     }
 
     void OnEnable()
@@ -92,25 +126,60 @@ public class WeatherManager : MonoBehaviour
         sun.transform.rotation = tilt * spin * Quaternion.Euler(90f, 0f, 0f);
 
         float curveVal = Mathf.Max(0f, sunIntensityCurve.Evaluate(time01));
-        sun.intensity = _baseSunIntensity * curveVal;
-        if (sunColorGradient != null)
-            sun.color = sunColorGradient.Evaluate(time01);
+        float baseIntensity = _baseSunIntensity * curveVal;
 
         Vector3 sunDir = -sun.transform.forward;
         bool isNight = sunDir.y <= 0f;
 
-        Material baseSky = isNight && nightSkybox ? nightSkybox : _daySkybox;
+        float nightFactor = isNight ? nightDarknessMultiplier : 1f;
+        sun.intensity = baseIntensity * nightFactor;
+
+        if (sunColorGradient != null)
+            sun.color = sunColorGradient.Evaluate(time01);
+
+        float targetBlend = isNight ? 1f : 0f;
+        if (skyboxBlendDuration <= 0f)
+        {
+            _skyboxBlendT = targetBlend;
+        }
+        else
+        {
+            float blendSpeed = 1f / Mathf.Max(0.0001f, skyboxBlendDuration);
+            _skyboxBlendT = Mathf.MoveTowards(_skyboxBlendT, targetBlend, Time.deltaTime * blendSpeed);
+        }
+
+        Material baseSky = (isNight && nightSkybox) ? nightSkybox : _daySkybox;
+
         if (rainSkybox && _rainBlendT > 0.001f)
             RenderSettings.skybox = rainSkybox;
         else
             RenderSettings.skybox = baseSky;
 
+        Material activeSky = RenderSettings.skybox;
+        if (activeSky != null)
+        {
+            if (activeSky.HasProperty(_skyboxTintId))
+            {
+                Color tint = Color.Lerp(daySkyTint, nightSkyTint, _skyboxBlendT);
+                activeSky.SetColor(_skyboxTintId, tint);
+            }
+
+            if (activeSky.HasProperty(_skyboxExposureId))
+            {
+                float exposure = Mathf.Lerp(daySkyExposure, nightSkyExposure, _skyboxBlendT);
+                activeSky.SetFloat(_skyboxExposureId, exposure);
+            }
+        }
+
+        RenderSettings.ambientIntensity = Mathf.Lerp(dayAmbientIntensity, nightAmbientIntensity, _skyboxBlendT);
+
         if (stars)
         {
             var em = stars.emission;
-            em.enabled = isNight && (_rainBlendT <= 0.001f);
-            if (em.enabled && !stars.isPlaying) stars.Play();
-            if (!em.enabled && stars.isPlaying) stars.Stop();
+            bool enableStars = isNight && (_rainBlendT <= 0.001f);
+            em.enabled = enableStars;
+            if (enableStars && !stars.isPlaying) stars.Play();
+            if (!enableStars && stars.isPlaying) stars.Stop();
         }
     }
 
@@ -150,7 +219,6 @@ public class WeatherManager : MonoBehaviour
             if (any && !rainParticles.isPlaying) rainParticles.Play();
             if (!any && rainParticles.isPlaying) rainParticles.Stop();
         }
-
     }
 
     IEnumerator RainDirector()
