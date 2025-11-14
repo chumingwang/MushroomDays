@@ -10,9 +10,9 @@ public class MushroomCollectible : MonoBehaviour
     [SerializeField] private string mushroomType = "Common";
     
     [Header("Components")]
-    [HideInInspector] public Rigidbody rb;
-    [HideInInspector] public XRGrabInteractable grab;
-    [HideInInspector] public Collider[] colliders;
+    public Rigidbody rb;
+    public XRGrabInteractable grab;
+    public Collider[] colliders;
 
     public string MushroomName => mushroomName;
     public string MushroomType => mushroomType;
