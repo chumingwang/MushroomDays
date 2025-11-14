@@ -58,7 +58,7 @@ public class BasketCollector : MonoBehaviour
         var mush = other.GetComponentInParent<MushroomCollectible>();
         if (mush == null) return;
 
-        // Don't “steal” if user is still holding it
+        // Don't ï¿½stealï¿½ if user is still holding it
         if (mush.grab && mush.grab.isSelected) return;
 
         // Already collected?
@@ -87,6 +87,14 @@ public class BasketCollector : MonoBehaviour
 
         collected.Add(mush);
         UpdateCountUI();
+        
+        // Notify mushroom tracker
+        MushroomTracker tracker = MushroomTracker.Instance;
+        if (tracker != null)
+        {
+            tracker.RegisterMushroomCollected(mush);
+        }
+        
         // (Optional) play SFX or haptics here
     }
 
