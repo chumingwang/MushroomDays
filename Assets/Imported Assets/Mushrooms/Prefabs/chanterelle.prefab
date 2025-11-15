@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: -3650386546844487374}
   - component: {fileID: -3255428117782351849}
   - component: {fileID: -6516252582703183883}
-  - component: {fileID: -4103470102979956168}
   - component: {fileID: -4544627482643654371}
+  - component: {fileID: 5366521713935552919}
   m_Layer: 6
   m_Name: chanterelle
   m_TagString: Mushroom
@@ -304,19 +304,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHandModel: {fileID: 0}
   rightHandModel: {fileID: 0}
---- !u!114 &-4103470102979956168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6792290375360995223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baabca32d94dcd04dbb18ef52f1154c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RootOffset: 0.03
 --- !u!114 &-4544627482643654371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,3 +317,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookTime: 5
+--- !u!114 &5366521713935552919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6792290375360995223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7c5073a6ab685428a69f0dd128b857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  data: {fileID: 11400000, guid: 9da681a742009bd4890defb48b335a5f, type: 2}
+  RootOffset: 0.03
