@@ -1,25 +1,42 @@
-using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CollectionUI : MonoBehaviour
 {
-    public TMP_Text collectionText;
-    // Or TMP_Text if using TextMeshPro
+    [System.Serializable]
+    public class MushroomUIBlock
+    {
+        public MushroomType type;
+        public TMP_Text countText;
+        public Button infoButton;
+    }
+
+    public MushroomUIBlock[] entries;   // Drag UI objects in Inspector
+    public MenuUIManager menuUiManager;         // To open Info UI
 
     public void Refresh()
     {
-        StringBuilder sb = new StringBuilder();
-
-        foreach (MushroomType type in System.Enum.GetValues(typeof(MushroomType)))
+        foreach (var entry in entries)
         {
-            int count = CollectionManager.Instance.GetCount(type);
-            bool unlocked = CollectionManager.Instance.IsUnlocked(type);
+            int count = CollectionManager.Instance.GetCount(entry.type);
 
-            sb.AppendLine($"{type}: {count}/5 {(unlocked ? "(Unlocked)" : "")}");
+            // Update count text
+            entry.countText.text = count + "/2";
+
+            // Unlock button only when count >= 2
+            bool unlocked = count >= 2;
+            entry.infoButton.gameObject.SetActive(unlocked);
+
+            if (unlocked)
+            {
+                entry.infoButton.onClick.RemoveAllListeners();
+                entry.infoButton.onClick.AddListener(() =>
+                {
+                    // Show info UI for this type
+                    menuUiManager.ShowMushroomInfo(entry.type);
+                });
+            }
         }
-
-        collectionText.text = sb.ToString();
     }
 }

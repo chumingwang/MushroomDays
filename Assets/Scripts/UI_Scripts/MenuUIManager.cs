@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -19,6 +20,9 @@ public class MenuUIManager : MonoBehaviour
     [Header("UI Panels")]
     public GameObject mainMenuUI;
     public GameObject collectionUI;
+    public GameObject infoUI;
+
+    public MushroomInfoUI infoLayer;
 
     public void ToggleMenu()
     {
@@ -54,15 +58,38 @@ public class MenuUIManager : MonoBehaviour
     {
         mainMenuUI.SetActive(true);
         collectionUI.SetActive(false);
+        infoUI.SetActive(false);
     }
 
     public void ShowCollectionUI()
     {
         // Keep the menu canvas unchanged (only swap the panels)
         mainMenuUI.SetActive(false);
+        infoUI.SetActive(false);
         collectionUI.SetActive(true);
 
         // Refresh collected data
         collectionUI.GetComponent<CollectionUI>().Refresh();
     }
+
+    public void ShowMushroomInfo(MushroomType type)
+    {
+        mainMenuUI.SetActive(false);
+        collectionUI.SetActive(false);
+        infoUI.SetActive(true);
+
+        // Call MushroomData directly (you already have ScriptableObjects)
+        infoLayer.ShowInfo(GetData(type));
+    }
+
+    private MushroomData GetData(MushroomType type)
+    {
+        // simplest: drag all ScriptableObjects into an array
+        foreach (var d in dataArray)
+            if (d.type == type) return d;
+
+        return null;
+    }
+
+    public MushroomData[] dataArray; // drag MushroomData SO objects here
 }
