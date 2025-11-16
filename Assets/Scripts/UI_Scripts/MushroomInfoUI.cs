@@ -12,6 +12,6 @@ public class MushroomInfoUI : MonoBehaviour
     {
         nameText.text = data.displayName;
         descriptionText.text = data.description;
-        // icon.sprite = data.icon;
+        icon.sprite = data.icon;
     }
 }

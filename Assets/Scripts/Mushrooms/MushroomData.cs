@@ -6,6 +6,6 @@ public class MushroomData : ScriptableObject
     public MushroomType type;
 
     public string displayName;
-    // public Sprite icon;
+    public Sprite icon;
     [TextArea] public string description;
 }

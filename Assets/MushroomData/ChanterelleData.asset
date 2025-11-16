@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   displayName: Chanterelle
+  icon: {fileID: 21300000, guid: 3472bf4e2703dc44ba96225ad940bf1e, type: 3}
   description: Chanterelle description
