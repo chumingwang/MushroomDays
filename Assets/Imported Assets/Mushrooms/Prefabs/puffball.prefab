@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4421209807921836431}
   - component: {fileID: 7500045713857961314}
   - component: {fileID: -6932182303939313531}
-  - component: {fileID: 6945153562644828148}
   - component: {fileID: 3077194436014007137}
+  - component: {fileID: 171157644079280824}
   m_Layer: 6
   m_Name: puffball
   m_TagString: Mushroom
@@ -304,19 +304,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHandModel: {fileID: 0}
   rightHandModel: {fileID: 0}
---- !u!114 &6945153562644828148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8957643304159223314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baabca32d94dcd04dbb18ef52f1154c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RootOffset: 0.01
 --- !u!114 &3077194436014007137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,3 +317,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookTime: 5
+--- !u!114 &171157644079280824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957643304159223314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7c5073a6ab685428a69f0dd128b857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 5
+  data: {fileID: 11400000, guid: 6ad1eebcbfc034940b5890fb92f9ad8d, type: 2}
+  RootOffset: 0.01

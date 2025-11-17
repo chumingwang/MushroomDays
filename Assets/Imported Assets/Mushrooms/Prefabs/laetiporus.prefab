@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: -2960147015723184186}
   - component: {fileID: -435909778449592616}
   - component: {fileID: -8345193538046065530}
-  - component: {fileID: -1363475645380561817}
   - component: {fileID: 2298033382673192544}
   m_Layer: 0
   m_Name: laetiporus
@@ -67,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fdbd8f897d88e5e4f8c42fd7d9011184, type: 2}
+  - {fileID: 2100000, guid: 1fd7fd409852df64abd003e663c0a25d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -304,19 +303,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHandModel: {fileID: 0}
   rightHandModel: {fileID: 0}
---- !u!114 &-1363475645380561817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8674269264007796015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baabca32d94dcd04dbb18ef52f1154c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RootOffset: 0
 --- !u!114 &2298033382673192544
 MonoBehaviour:
   m_ObjectHideFlags: 0

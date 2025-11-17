@@ -52,6 +52,7 @@ public class MushroomGenerator : MonoBehaviour
             GameObject mushroom = Instantiate(mushroomPrefab, spawnPos, Quaternion.identity);
 
             mushroom.AddComponent<MushroomPhysics>();
+            mushroom.AddComponent<MushroomCollectibleCW>();
 
             // Apply random Y rotation
             float randomYRotation = Random.Range(0f, 360f);
@@ -62,10 +63,10 @@ public class MushroomGenerator : MonoBehaviour
             mushroom.transform.localScale *= randomScale;
 
             // Apply root offset (after scaling)
-            MushroomSettings settings = mushroom.GetComponent<MushroomSettings>();
-            if (settings != null)
+            MushroomProperties properties = mushroom.GetComponent<MushroomProperties>();
+            if (properties != null)
             {
-                mushroom.transform.position += Vector3.up * settings.RootOffset * randomScale;
+                mushroom.transform.position += Vector3.up * properties.RootOffset * randomScale;
             }
 
             // Disable gravity initially
