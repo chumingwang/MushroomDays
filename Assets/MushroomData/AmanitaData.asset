@@ -14,5 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   displayName: Amanita
-  icon: {fileID: 21300000, guid: 3472bf4e2703dc44ba96225ad940bf1e, type: 3}
-  description: Amanita description
+  icon: {fileID: 21300000, guid: 30b6047a6db38e14e8b81a696888117a, type: 3}
+  description: 'Amanita muscaria, commonly known as the fly agaric or fly amanita.
+
+    Poisonous.
+    Hallucinogenic.
+
+    Have a brilliant red cap generally covered with warts that
+    are the remnant of the universal veil that covers the young mushrooms as they
+    grow. The warts are typically visible, but can be removed by rain.'

@@ -91,6 +91,7 @@ namespace Hanzzz.MeshSlicerFree
             grab.useDynamicAttach = true;
 
             sliceObject.layer = oldObject.layer;
+            sliceObject.GetComponent<MushroomProperties>().isSliced = true;
         }
 
         public void CopyCustomComponents(GameObject sliceObject, GameObject oldObject)

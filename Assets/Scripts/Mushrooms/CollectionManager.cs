@@ -30,7 +30,7 @@ public class CollectionManager : MonoBehaviour
     }
     public bool IsUnlocked(MushroomType type)
     {
-        return collectedCounts[type] >= 2;
+        return collectedCounts[type] >= 0;
     }
     public int GetCount(MushroomType type)
     {

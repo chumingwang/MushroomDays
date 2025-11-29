@@ -14,5 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   displayName: Puffball
-  icon: {fileID: 21300000, guid: 3472bf4e2703dc44ba96225ad940bf1e, type: 3}
-  description: Puffball description
+  icon: {fileID: 21300000, guid: 409754b8d45402244be78c1655760ce0, type: 3}
+  description: 'Edible when pure white, inside and out.
+
+    Thick, firm, marshmallow-like
+    consistency.
+
+    No gills, stem, or internal structure.
+
+    Grow on the ground
+    in meadows, lawns, fields, deciduous forests.'

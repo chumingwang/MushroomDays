@@ -14,5 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   displayName: Lactarius
-  icon: {fileID: 21300000, guid: 3472bf4e2703dc44ba96225ad940bf1e, type: 3}
-  description: Lactarius description
+  icon: {fileID: 21300000, guid: dcc369862a5564d409a5350540b195bc, type: 3}
+  description: 'The eponymous "milk" and the brittle consistency of the flesh are
+    the most prominent field characters.
+
+    Several Lactarius species are edible.
+
+    L.
+    deliciosus notably ranks among the most highly valued mushrooms in the Northern
+    hemisphere.'

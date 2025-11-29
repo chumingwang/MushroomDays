@@ -14,18 +14,20 @@ public class CollectionUI : MonoBehaviour
 
     public MushroomUIBlock[] entries;   // Drag UI objects in Inspector
     public MenuUIManager menuUiManager;         // To open Info UI
+    public Button recipe_btn;
 
     public void Refresh()
     {
+        bool recipe_isUnlook = true;
         foreach (var entry in entries)
         {
             int count = CollectionManager.Instance.GetCount(entry.type);
 
             // Update count text
-            entry.countText.text = count + "/2";
+            entry.countText.text = count + "/1";
 
-            // Unlock button only when count >= 2
-            bool unlocked = count >= 2;
+            // Unlock button only when count >= 1
+            bool unlocked = count >= 1;
             entry.infoButton.gameObject.SetActive(unlocked);
 
             if (unlocked)
@@ -37,6 +39,10 @@ public class CollectionUI : MonoBehaviour
                     menuUiManager.ShowMushroomInfo(entry.type);
                 });
             }
+            else {
+                recipe_isUnlook = false;
+            }
         }
+        recipe_btn.gameObject.SetActive(recipe_isUnlook);
     }
 }

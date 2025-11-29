@@ -21,6 +21,7 @@ public class MenuUIManager : MonoBehaviour
     public GameObject mainMenuUI;
     public GameObject collectionUI;
     public GameObject infoUI;
+    public GameObject recipeUI;
 
     public MushroomInfoUI infoLayer;
 
@@ -59,6 +60,7 @@ public class MenuUIManager : MonoBehaviour
         mainMenuUI.SetActive(true);
         collectionUI.SetActive(false);
         infoUI.SetActive(false);
+        recipeUI.SetActive(false);
     }
 
     public void ShowCollectionUI()
@@ -67,6 +69,7 @@ public class MenuUIManager : MonoBehaviour
         mainMenuUI.SetActive(false);
         infoUI.SetActive(false);
         collectionUI.SetActive(true);
+        recipeUI.SetActive(false);
 
         // Refresh collected data
         collectionUI.GetComponent<CollectionUI>().Refresh();
@@ -77,9 +80,18 @@ public class MenuUIManager : MonoBehaviour
         mainMenuUI.SetActive(false);
         collectionUI.SetActive(false);
         infoUI.SetActive(true);
+        recipeUI.SetActive(false);
 
         // Call MushroomData directly (you already have ScriptableObjects)
         infoLayer.ShowInfo(GetData(type));
+    }
+
+    public void ShowRecipe()
+    {
+        mainMenuUI.SetActive(false);
+        collectionUI.SetActive(false);
+        infoUI.SetActive(false);
+        recipeUI.SetActive(true);
     }
 
     private MushroomData GetData(MushroomType type)

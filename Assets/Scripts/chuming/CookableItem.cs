@@ -49,6 +49,7 @@ public class CookableItem : MonoBehaviour
     void Cooked()
     {
         isCooked = true;
+        GetComponent<MushroomProperties>().isCooked = true;
         for (int i = 0; i < mats.Length; i++)
         {
             Color darker = rawColors[i] * 0.7f;

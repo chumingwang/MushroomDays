@@ -11,4 +11,6 @@ public class MushroomProperties : MonoBehaviour
     public float RootOffset = 0f;
 
     public bool isCollected = false;
+    public bool isSliced = false;
+    public bool isCooked = false;
 }

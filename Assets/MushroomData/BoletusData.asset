@@ -14,5 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   displayName: Boletus
-  icon: {fileID: 21300000, guid: 3472bf4e2703dc44ba96225ad940bf1e, type: 3}
-  description: Boletus description
+  icon: {fileID: 21300000, guid: fa01132f835f0d5479cbfdfe7413d562, type: 3}
+  description: 'Symbiotic relationship with the roots of living trees.
+
+    Conifers
+    like pine, spruce, fir.
+
+    Forest floor, alone or small groups.
+
+    Rich,
+    nutty flavor.
+
+    Large cap, up to 12 inches.'
