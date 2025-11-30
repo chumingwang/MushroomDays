@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RecipeManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class RecipeManager : MonoBehaviour
     public List<ItemRequirement> requirements;
 
     public GameObject winPanel;
+    public GameObject rayInteractor;
 
     void Start()
     {
@@ -75,5 +77,6 @@ public class RecipeManager : MonoBehaviour
 
         Debug.Log("correct");
         winPanel.SetActive(true);
+        rayInteractor.SetActive(true);
     }
 }
